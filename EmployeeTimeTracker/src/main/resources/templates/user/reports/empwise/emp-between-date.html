@@ -1,0 +1,35 @@
+<div class="modal fade" id="betweenDateReportModal" tabindex="-1" aria-labelledby="betweenDateReportModalLabel"
+	aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content col-8">
+			<div class="modal-header bg-primary text-white">
+				<h5 class="modal-title" id="betweenDateReportModalLabel">Select both date and click on get report</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<form action="/employee-timetracker/user/empwise/report/between-date">
+					<div class="row my-3">
+						<div class="col-12 d-flex justify-content-center">
+							<input type="date" id="bdate1" class="form-control" name="date1" required>
+						</div>
+					</div>
+					<div class="row my-3">
+						<div class="col-12 d-flex justify-content-center">
+							<input type="hidden" th:value="${eid}" name="empId">
+							<input type="date" id="bdate2" class="form-control" name="date2" required>
+							<script>
+								const today = new Date().toISOString().split('T')[0];
+								document.getElementById("bdate2").setAttribute("max", today);
+							</script>
+						</div>
+					</div>
+					<div class="row my-3">
+						<div class="col-12">
+							<button type="submit" class="btn btn-success w-100">Get Report</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
